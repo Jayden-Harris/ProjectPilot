@@ -36,10 +36,10 @@ Sync across devices
 
 ## 📱 Screenshots
 
-<img src="image.png" alt="Screenshot 1" width="300" height="300">
-<img src="image-1.png" alt="Screenshot 2" width="300" height="300">
-<img src="image-2.png" alt="Screenshot 3" width="300" height="300">
-<img src="image-3.png" alt="Screenshot 4" width="300" height="300">
+<img src="image.png" alt="Screenshot 1" width="375" height="667">
+<img src="image-1.png" alt="Screenshot 2" width="375" height="667">
+<img src="image-2.png" alt="Screenshot 3" width="375" height="667">
+<img src="image-3.png" alt="Screenshot 4" width="375" height="667">
 
 ---
 
@@ -54,17 +54,4 @@ Sync across devices
 
 ---
 
-## 💡 Getting Started
 
-### Prerequisites
-
-- Node.js
-- MongoDB
-- React Native CLI or Expo CLI
-
-### Installation
-
-1. **Clone the repo**
-   ```bash
-   git clone https://github.com/your-username/freelance-flow.git
-   cd freelance-flow
