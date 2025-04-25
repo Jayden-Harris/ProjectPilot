@@ -27,19 +27,19 @@
 
 ✨ Coming Soon
 
-Notifications & reminders
-Analytics & productivity insights
-Export reports for clients
+Notifications & reminders  
+Analytics & productivity insights  
+Export reports for clients  
 Sync across devices
 
 ---
 
 ## 📱 Screenshots
 
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
-![alt text](image-3.png)
+![Screenshot 1](image.png =300x300)
+![Screenshot 2](image-1.png =300x300)
+![Screenshot 3](image-2.png =300x300)
+![Screenshot 4](image-3.png =300x300)
 
 ---
 
