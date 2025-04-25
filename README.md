@@ -36,12 +36,6 @@ Sync across devices
 
 ## 📱 Screenshots
 
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
-  <img src="image.png" alt="Screenshot 1" style="width: 100%; height: auto;">
-  <img src="image-1.png" alt="Screenshot 2" style="width: 100%; height: auto;">
-  <img src="image-2.png" alt="Screenshot 3" style="width: 100%; height: auto;">
-  <img src="image-4.png" alt="Screenshot 4" style="width: 100%; height: auto;">
-</div>
 
 ---
 
