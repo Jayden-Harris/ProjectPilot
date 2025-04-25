@@ -36,10 +36,10 @@ Sync across devices
 
 ## 📱 Screenshots
 
-![Screenshot 1](image.png =300x300)
-![Screenshot 2](image-1.png =300x300)
-![Screenshot 3](image-2.png =300x300)
-![Screenshot 4](image-3.png =300x300)
+<img src="image.png" alt="Screenshot 1" width="300" height="300">
+<img src="image-1.png" alt="Screenshot 2" width="300" height="300">
+<img src="image-2.png" alt="Screenshot 3" width="300" height="300">
+<img src="image-3.png" alt="Screenshot 4" width="300" height="300">
 
 ---
 
