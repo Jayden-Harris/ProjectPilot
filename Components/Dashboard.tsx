@@ -15,6 +15,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { SelectList } from "react-native-dropdown-select-list";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import Environment from "./env";
 
 const Dashboard: React.FC = () => {
   const navigation = useNavigation();
@@ -28,6 +29,7 @@ const Dashboard: React.FC = () => {
   const [taskDeadline, setTaskDeadline] = useState("");
   const [taskStatus, setTaskStatus] = useState("");
   const [showDatePicker, setShowDatePicker] = useState(false);
+  const url = Environment.env === "dev" ? Environment.dev_url : Environment.prod_url;
 
   const statusOptions = [
     { key: "1", value: "Not Started" },
@@ -47,7 +49,7 @@ const Dashboard: React.FC = () => {
     const fetchTasks = async () => {
       try {
         const token = await AsyncStorage.getItem("token");
-        const response = await axios.get("http://localhost:8000/api/tasks", {
+        const response = await axios.get(`${url}/api/tasks`, {
           headers: { Authorization: token },
         });
         const sortedTasks = response.data.tasks.sort(
@@ -78,7 +80,7 @@ const Dashboard: React.FC = () => {
 
     try {
       const token = await AsyncStorage.getItem("token");
-      await axios.delete("http://localhost:8000/api/tasks/delete", {
+      await axios.delete(`${url}/api/tasks/delete`, {
         headers: { Authorization: token },
         data: { taskId: selectedTask._id },
       });
@@ -103,7 +105,7 @@ const Dashboard: React.FC = () => {
     try {
       const token = await AsyncStorage.getItem("token");
       await axios.put(
-        "http://localhost:8000/api/tasks/edit",
+        `${url}/api/tasks/edit`,
         {
           taskId: selectedTask._id,
           updates: {

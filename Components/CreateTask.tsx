@@ -12,7 +12,8 @@ import { useNavigation } from "@react-navigation/native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
-import { SelectList } from "react-native-dropdown-select-list"; // ✅ Import SelectList
+import { SelectList } from "react-native-dropdown-select-list"; 
+import Environment from "./env"
 
 const CreateTask: React.FC = () => {
   const navigation = useNavigation();
@@ -22,6 +23,7 @@ const CreateTask: React.FC = () => {
   const [deadline, setDeadline] = useState(new Date());
   const [status, setStatus] = useState("Not Started");
   const [showPicker, setShowPicker] = useState(false);
+  const url = Environment.env === "dev" ? Environment.dev_url : Environment.prod_url;
 
   const statusOptions = [
     { key: "1", value: "Not Started" },
@@ -55,7 +57,7 @@ const CreateTask: React.FC = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:8000/api/tasks/add",
+       `${url}/api/tasks/add`,
         taskData,
         {
           headers: {

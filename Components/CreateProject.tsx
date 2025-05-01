@@ -13,6 +13,7 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { SelectList } from "react-native-dropdown-select-list";
+import Environment from "./env";
 
 const CreateProject: React.FC = () => {
   const navigation = useNavigation();
@@ -25,6 +26,7 @@ const CreateProject: React.FC = () => {
   const [requestedFeatures, setRequestedFeatures] = useState<string[]>([]);
   const [deadline, setDeadline] = useState(new Date());
   const [showPicker, setShowPicker] = useState(false);
+  const url = Environment.env === "dev" ? Environment.dev_url : Environment.prod_url;
 
   useEffect(() => {
     const fetchClients = async () => {
@@ -36,7 +38,7 @@ const CreateProject: React.FC = () => {
           return;
         }
 
-        const response = await axios.get("http://localhost:8000/api/clients", {
+        const response = await axios.get(`${url}/api/clients`, {
           headers: {
             Authorization: token,
           },
@@ -110,7 +112,7 @@ const CreateProject: React.FC = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:8000/api/projects/add",
+        `{${url}/api/projects/add}`,
         projectData,
         {
           headers: {
@@ -121,7 +123,7 @@ const CreateProject: React.FC = () => {
       );
 
       console.log("Project created successfully", response.data);
-      navigation.goBack();
+      navigation.navigate("ProjectDashboard")
     } catch (error: any) {
       console.error("Error creating project:", error?.response?.data || error.message);
       Alert.alert("Error", "Something went wrong while creating the project.");

@@ -10,12 +10,14 @@ import { TextInput, Button, Text } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
+import Environment from "./env"
 
 const CreateClient: React.FC = () => {
   const navigation = useNavigation();
 
   const [clientName, setClientName] = useState("");
   const [clientDescription, setClientDescription] = useState("");
+  const url = Environment.env === "dev" ? Environment.dev_url : Environment.prod_url;
 
   const handleCreateClient = async () => {
     if (!clientName || !clientDescription) {
@@ -36,7 +38,7 @@ const CreateClient: React.FC = () => {
         return;
       }
 
-      const response = await axios.post("http://localhost:8000/api/clients/add", clientData, {
+      const response = await axios.post(`${url}/api/clients/add`, clientData, {
         headers: {
           "Content-Type": "application/json",
           Authorization: token,

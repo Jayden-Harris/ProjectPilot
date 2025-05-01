@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";  // Import useNavigation hook
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Environment from "./env";
 
 const AuthPage: React.FC = () => {
   const [isRegister, setIsRegister] = useState(false);
@@ -9,12 +10,13 @@ const AuthPage: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const url = Environment.env === "dev" ? Environment.dev_url : Environment.prod_url;
 
   // Get the navigation object
   const navigation = useNavigation();
 
   const handleSubmit = async () => {
-    const baseUrl = "http://localhost:8000/api/auth"; 
+    const baseUrl = `${url}/api/auth`; 
   
     if (isRegister) {
       if (password !== confirmPassword) {

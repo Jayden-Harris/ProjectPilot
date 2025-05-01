@@ -16,6 +16,7 @@ import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import * as Animatable from "react-native-animatable";
+import Environment from "./env";
 
 const ProjectDashboard: React.FC = () => {
   const navigation = useNavigation();
@@ -27,11 +28,12 @@ const ProjectDashboard: React.FC = () => {
   const [featuresText, setFeaturesText] = useState("");
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [fadeAnim] = useState(new Animated.Value(0));
-
+  const url = Environment.env === "dev" ? Environment.dev_url : Environment.prod_url;
+  
   const fetchProjects = async () => {
     const token = await AsyncStorage.getItem("token");
     try {
-      const res = await axios.get("http://localhost:8000/api/projects", {
+      const res = await axios.get(`${url}/api/projects/`, {
         headers: {
           Authorization: token,
         },
@@ -51,7 +53,7 @@ const ProjectDashboard: React.FC = () => {
   const deleteProject = async (projectId: string) => {
     const token = await AsyncStorage.getItem("token");
     try {
-      await axios.delete("http://localhost:8000/api/projects/delete", {
+      await axios.delete(`${url}/api/projects/delete`, {
         headers: { Authorization: token },
         data: { projectId },
       });
@@ -77,7 +79,7 @@ const ProjectDashboard: React.FC = () => {
 
     try {
       await axios.put(
-        "http://localhost:8000/api/projects/edit",
+        `${url}/api/projects/edit`,
         {
           projectId: editedProject._id,
           updates: {
