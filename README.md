@@ -49,18 +49,3 @@ Sync across devices
 - **DateTimePicker** – User-friendly date input
 
 ---
-
-## 💡 Getting Started
-
-### Prerequisites
-
-- Node.js
-- MongoDB
-- React Native CLI or Expo CLI
-
-### Installation
-
-1. **Clone the repo**
-   ```bash
-   git clone https://github.com/your-username/freelance-flow.git
-   cd freelance-flow
